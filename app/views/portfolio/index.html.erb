@@ -17,8 +17,19 @@
 </div>
 <div id="modalbox">
   <div id="image-box">
-    <div id="image">
-      <img src=""/>
+    <div class="pal">
+      <div id="image">
+        <img src=""/>
+      </div>
+      <div id="information">
+        <div class="title">
+        </div>
+        <div class="description">
+        </div>
+        <div class="programs">
+          Adobe Illustrator CSS6
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -45,11 +56,19 @@
   }
 
   function resize_image_dimensions(image) {
-    var xMax = jQuery("#image").width();
-    var yMax = jQuery("#image").height();
     var ratio;
     var ratioMax;
     ratio = image.width / image.height;
+    if(ratio > 1){
+      jQuery("#image-box").removeClass("tall");
+      jQuery("#image-box").addClass("wide");
+    }
+    else {
+      jQuery("#image-box").removeClass("wide");
+      jQuery("#image-box").addClass("tall");
+    }
+    var xMax = jQuery("#image").width();
+    var yMax = jQuery("#image").height();
     ratioMax = xMax / yMax;
     //width is larger
     if (ratio > ratioMax){
@@ -76,6 +95,7 @@
       currentImage++;
     }
     getMeta(illustrations[currentImage].image);
+    jQuery("#information .title").html(illustrations[currentImage].title);
   }
 
   jQuery(document).ready(function(){
@@ -102,6 +122,8 @@
     jQuery(".image-split-5").click(function(){
       jQuery("#modalbox").show();
       getMeta(illustrations[currentImage].image);
+      jQuery("#information .title").html(illustrations[currentImage].title);
+      jQuery("#information .description").html(illustrations[currentImage].description);
     });
 
     jQuery("#image-box").click(function(e){

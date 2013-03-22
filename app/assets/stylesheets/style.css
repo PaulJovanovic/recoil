@@ -171,10 +171,48 @@ a:active {
 }
 
 #modalbox #image-box #image {
-    height: 100%;
+    float:left;
+    height: 536px;
     width: 50%;
 }
 
+#modalbox #image-box.tall #image {
+    height: 536px;
+    width: 50%;
+}
+
+#modalbox #image-box.wide #image {
+    height: 455px;
+    width: 100%;
+}
+
+#modalbox #image-box #information {
+    float: left;
+    font-size: 20px;
+}
+
+#modalbox #image-box.wide #information {
+    width: 100%;
+}
+
+#modalbox #image-box.wide #information .title {
+    float: left;
+    width: 33.3%;
+    text-align: left;
+    font-weight: bold;
+}
+
+#modalbox #image-box.wide #information .description {
+    float: left;   
+    width: 33.3%;
+    text-align: center;
+}
+
+#modalbox #image-box.wide #information .programs {
+    float: left;
+    width: 33.3%;
+    text-align: right;
+}
 .pal {
     padding: 20px;
 }
