@@ -1,7 +1,7 @@
 class PortfolioController < ApplicationController
+	before_filter :get_illustrations
+
   def index
-  	@illustrations = Illustration.all
-  	
     render :action => "index.html.erb", :layout => "application"
   end
 end

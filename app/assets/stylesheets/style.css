@@ -159,13 +159,20 @@ a:active {
 }
 
 #modalbox #image-box {
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:60em;
+    height:36em;
+    margin-top: -18em; /*set to a negative number 1/2 of your height*/
+    margin-left: -30em; /*set to a negative number 1/2 of your width*/
     background-color: #EDEDE4;
     border: solid 5px #B5AE9C;
+}
+
+#modalbox #image-box #image {
+    height: 100%;
+    width: 50%;
 }
 
 .pal {

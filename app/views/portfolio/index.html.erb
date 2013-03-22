@@ -17,17 +17,69 @@
 </div>
 <div id="modalbox">
   <div id="image-box">
-    <div class="pal">
-      <% @illustrations.each do |illustration| %>
-        <%= image_tag illustration.image.url %>
-      <% end %>
+    <div id="image">
+      <img src=""/>
     </div>
   </div>
 </div>
 <script>
-  jQuery('body').css("background-image", "url(/assets/truckbg.png)");
-  var currentOpacity;
+  var illustrations = <%= raw @illustrations %>
+
+  function getMeta(url) {
+      var img = new Image();
+      img.src = url;
+      img.onload = function() {
+          resize_image(this);
+      }
+  }
+
+  function Dimensions(x, y) {
+      this.x  = x;
+      this.y = y;
+  }
+
+  function resize_image(img){
+    var dimensions = resize_image_dimensions(img);
+    jQuery("#image img").attr("src", img.src);
+    jQuery("#image img").css({"width" : dimensions.x+"px", "height" : dimensions.y+"px"});
+  }
+
+  function resize_image_dimensions(image) {
+    var xMax = jQuery("#image").width();
+    var yMax = jQuery("#image").height();
+    var ratio;
+    var ratioMax;
+    ratio = image.width / image.height;
+    ratioMax = xMax / yMax;
+    //width is larger
+    if (ratio > ratioMax){
+      jQuery("#image img").css("marginLeft", 0);
+      var newHeight = image.height * xMax / image.width;
+      jQuery("#image img").css("marginTop", (yMax - newHeight)/2);
+      return new Dimensions(xMax, newHeight);
+    }
+    else{
+      jQuery("#image img").css("marginTop", 0);
+      var newWidth = image.width * yMax / image.height;
+      jQuery("#image img").css("marginLeft", (xMax - newWidth)/2);
+      return new Dimensions(newWidth, yMax);
+    }
+
+  }
+
+  var currentImage = 0;
+  function nextImage(){
+    if(currentImage == illustrations.length - 1){
+      currentImage = 0;
+    }
+    else{
+      currentImage++;
+    }
+    getMeta(illustrations[currentImage].image);
+  }
+
   jQuery(document).ready(function(){
+
     jQuery(".image-split-5").each(function(){
       var rgb = jQuery(this).css("background-color").replace(/\s+/g, "");
       rgb = rgb.slice(5,rgb.length-1);
@@ -40,7 +92,6 @@
 
     jQuery(".image-split-5").mouseenter(function(){
       if(!jQuery(this).hasClass("bg1")){
-        currentOpacity = jQuery(this).css("opacity");
         jQuery(this).addClass("shadow");
         var rgb = jQuery(this).css("background-color").replace(/\s+/g, "");
         rgb = rgb.slice(5,rgb.length-1);
@@ -48,17 +99,14 @@
         jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+",.85)");
       }
     });
-    //jQuery(".image-split-5").click(function(){
-    //  jQuery("#modalbox").show();
-      // var img = new Image();
-      // img = jQuery("#bgtruck-logo img").attr("src");
-      // var dimensions = resize_image_dimensions(img);
-      // jQuery("#image-box .pal img").attr("src", jQuery("#bgtruck-logo img").attr("src"));
-      // jQuery("#image-box .pal img").css({"width" : dimensions.x+"px", "height" : dimensions.y+"px"});
-    //});
+    jQuery(".image-split-5").click(function(){
+      jQuery("#modalbox").show();
+      getMeta(illustrations[currentImage].image);
+    });
 
     jQuery("#image-box").click(function(e){
       e.stopPropagation();
+      nextImage();
     });
 
     jQuery("#modalbox").click(function(){
@@ -66,24 +114,4 @@
     });
   });
 
-  function Dimensions(x, y) {
-      this.x  = x;
-      this.y = y;
-  }
-
-  function resize_image_dimensions(image) {
-    var xMax = jQuery("#image-box .pal").width();
-    var yMax = jQuery("#image-box").height() - 40;
-    var ratio;
-    var ratioMax;
-    ratio = image.width / image.height;
-    ratioMax = xMax / yMax;
-    //width is larger
-    if (ratio > ratioMax){
-      return new Dimensions(xMax, image.height * xMax / image.width);
-    }
-    else{
-      return new Dimensions(image.width * yMax / image.height, yMax);
-    }
-  }
 </script>
