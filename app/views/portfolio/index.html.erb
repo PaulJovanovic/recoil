@@ -1,0 +1,89 @@
+<div class="image-split-5 bg1">
+</div>
+<div class="image-split-5 bg2">
+  <h3>ADVERTISING</h3>
+</div>
+<div class="image-split-5 bg3">
+  <h3>ILLUSTRATION</h3>
+</div>
+<div class="image-split-5 bg4">
+  <h3>PROCESS</h3>
+</div>
+<div class="image-split-5 bg5">
+  <h3>ABOUT ME</h3>
+</div>
+<div id="bgtruck-logo">
+  <img src="/assets/logo2.png"/>
+</div>
+<div id="modalbox">
+  <div id="image-box">
+    <div class="pal">
+      <% @illustrations.each do |illustration| %>
+        <%= image_tag illustration.image.url %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>
+  jQuery('body').css("background-image", "url(/assets/truckbg.png)");
+  var currentOpacity;
+  jQuery(document).ready(function(){
+    jQuery(".image-split-5").each(function(){
+      var rgb = jQuery(this).css("background-color").replace(/\s+/g, "");
+      rgb = rgb.slice(5,rgb.length-1);
+      var colors = rgb.split(",");
+      jQuery(this).mouseleave(function(){
+        jQuery(this).removeClass("shadow");
+        jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+","+colors[3]+")");
+      });
+    });
+
+    jQuery(".image-split-5").mouseenter(function(){
+      if(!jQuery(this).hasClass("bg1")){
+        currentOpacity = jQuery(this).css("opacity");
+        jQuery(this).addClass("shadow");
+        var rgb = jQuery(this).css("background-color").replace(/\s+/g, "");
+        rgb = rgb.slice(5,rgb.length-1);
+        var colors = rgb.split(",");
+        jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+",.85)");
+      }
+    });
+    //jQuery(".image-split-5").click(function(){
+    //  jQuery("#modalbox").show();
+      // var img = new Image();
+      // img = jQuery("#bgtruck-logo img").attr("src");
+      // var dimensions = resize_image_dimensions(img);
+      // jQuery("#image-box .pal img").attr("src", jQuery("#bgtruck-logo img").attr("src"));
+      // jQuery("#image-box .pal img").css({"width" : dimensions.x+"px", "height" : dimensions.y+"px"});
+    //});
+
+    jQuery("#image-box").click(function(e){
+      e.stopPropagation();
+    });
+
+    jQuery("#modalbox").click(function(){
+      jQuery("#modalbox").hide();
+    });
+  });
+
+  function Dimensions(x, y) {
+      this.x  = x;
+      this.y = y;
+  }
+
+  function resize_image_dimensions(image) {
+    var xMax = jQuery("#image-box .pal").width();
+    var yMax = jQuery("#image-box").height() - 40;
+    var ratio;
+    var ratioMax;
+    ratio = image.width / image.height;
+    ratioMax = xMax / yMax;
+    //width is larger
+    if (ratio > ratioMax){
+      return new Dimensions(xMax, image.height * xMax / image.width);
+    }
+    else{
+      return new Dimensions(image.width * yMax / image.height, yMax);
+    }
+  }
+</script>

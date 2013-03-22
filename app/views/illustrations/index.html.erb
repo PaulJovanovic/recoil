@@ -1,0 +1,43 @@
+<%= link_to "Back", admins_path %>
+<%= link_to "+ New Illustration", new_illustration_path %>
+
+<table>
+	<thead>
+		<tr>
+			<th class="image">
+				Image
+			</th>
+			<th class="text">
+				Title
+			</th>
+			<th class="text">
+				Description
+			</th>
+			<th class="actions">
+			</th>
+			<th class="actions">
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @illustrations.each do |illustration| %>
+		<tr>
+			<td class="image">
+				<%= image_tag illustration.image.url %>
+			</td>
+			<td>
+				<%= illustration.title %>
+			</td>
+			<td>
+				<%= illustration.description %>
+			</td>
+			<td>
+				<%= link_to "Edit", edit_illustration_path(illustration) %>
+			</td>
+			<td>
+				<%= link_to "Remove", illustration, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

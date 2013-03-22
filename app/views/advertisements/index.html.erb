@@ -1,0 +1,35 @@
+<%= link_to "Back", admins_path %>
+<%= link_to "+ New Advertisement", new_advertisement_path %>
+
+<table>
+	<thead>
+		<tr>
+			<th>
+				Title
+			</th>
+			<th>
+				Description
+			</th>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @advertisements.each do |advertisement| %>
+		<tr>
+			<td>
+				<%= advertisement.title %>
+			</td>
+			<td>
+				<%= advertisement.description %>
+			</td>
+			<td>
+				<%= link_to "Edit", edit_advertisement_path(advertisement) %>
+			</td>
+			<td>
+				<%= link_to "Remove", advertisement, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

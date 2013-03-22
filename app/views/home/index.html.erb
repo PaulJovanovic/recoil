@@ -1,0 +1,19 @@
+<div id="content">
+  <p><span class="hbold">RECOIL-</span><span class="hitalic">(often called knockback, kickback or simply kick) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is the backward momentum of a gun when it is
+<br/>discharged.</span></p>
+
+  <br>
+  <p class="hbold"><%= link_to "ART HAS RECOIL", portfolio_index_path, :id => "portfolio" %></p>
+</div><!-- content -->
+
+  <script>
+    function flickerText(){
+        var length = Math.floor(Math.random() * 120);
+        jQuery("#portfolio").css('textShadow','#ffffff 1px 1px '+length+'px');
+        jQuery("#portfolio").css('opacity',length/120 +.2);
+        setTimeout(flickerText, 60);
+    }
+    jQuery(document).ready(function(){
+        flickerText();
+    });
+  </script>

@@ -1,0 +1,35 @@
+<%= link_to "Back", admins_path %>
+<%= link_to "+ New Process", new_step_path %>
+
+<table>
+	<thead>
+		<tr>
+			<th>
+				Title
+			</th>
+			<th>
+				Description
+			</th>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @steps.each do |step| %>
+		<tr>
+			<td>
+				<%= step.step %>
+			</td>
+			<td>
+				<%= step.description %>
+			</td>
+			<td>
+				<%= link_to "Edit", edit_step_path(step) %>
+			</td>
+			<td>
+				<%= link_to "Remove", step, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
