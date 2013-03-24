@@ -25,6 +25,7 @@ body {
     width:100%;
     height:100%;
     overflow: hidden;
+    font-family: HBold;
 }
 
 #content {
@@ -109,21 +110,25 @@ a:active {
 }
 
 .bg2 {
+    cursor: pointer;
     left: 20%;
     background-color: rgba(13,14,21,.2);
 }
 
 .bg3 {
+    cursor: pointer;
     left: 40%;
     background-color: rgba(13,14,21,.35);
 }
 
 .bg4 {
+    cursor: pointer;
     left: 60%;
     background-color: rgba(13,14,21,.6);
 }
 
 .bg5 {
+    cursor: pointer;
     left: 80%;
     background-color: rgba(13,14,21,.8);
 }
@@ -166,8 +171,35 @@ a:active {
     height:36em;
     margin-top: -18em; /*set to a negative number 1/2 of your height*/
     margin-left: -30em; /*set to a negative number 1/2 of your width*/
-    background-color: #EDEDE4;
+    background-color: #fff;
     border: solid 5px #B5AE9C;
+}
+
+#modalbox #image-box .button {
+    color: #fff;
+    position:absolute;
+    top: 240px;
+    height: 60px;
+    width: 60px;
+    background-color: #C9C4B7;
+    border: solid 2px #A8A292;
+    text-align: center;
+    font-size: 32px;
+    line-height: 64px;
+    cursor: pointer;
+}
+
+#modalbox #image-box #back {
+    left: -20px;
+}
+
+#modalbox #image-box #next {
+    right: -20px;
+}
+
+#modalbox #image-box.tall {
+    width: 50em;
+    margin-left: -25em; /*set to a negative number 1/2 of your height*/
 }
 
 #modalbox #image-box #image {
@@ -182,13 +214,15 @@ a:active {
 }
 
 #modalbox #image-box.wide #image {
-    height: 455px;
+    height: 520px;
     width: 100%;
 }
 
 #modalbox #image-box #information {
+    color: #45433E;
     float: left;
     font-size: 20px;
+    padding: 10px;
 }
 
 #modalbox #image-box.wide #information {
@@ -196,23 +230,41 @@ a:active {
 }
 
 #modalbox #image-box.wide #information .title {
-    float: left;
+    float:left;
     width: 33.3%;
     text-align: left;
-    font-weight: bold;
+    line-height: 18px;
+    font-size: 24px;
 }
 
 #modalbox #image-box.wide #information .description {
-    float: left;   
+    float:left;
     width: 33.3%;
     text-align: center;
+    font-size: 18px;
 }
 
 #modalbox #image-box.wide #information .programs {
-    float: left;
-    width: 33.3%;
+    float:right;
     text-align: right;
+    font-size: 12px;
+    line-height: 12px;
+    margin-right: 10px;
 }
+
+#modalbox #image-box.tall #information .title {
+    font-size: 24px;
+}
+
+#modalbox #image-box.tall #information .description {
+    height: 40px;
+    font-size: 18px;
+}
+
+#modalbox #image-box.tall #information .programs {
+    font-size: 12px;
+}
+
 .pal {
     padding: 20px;
 }

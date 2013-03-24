@@ -1,15 +1,15 @@
 <div class="image-split-5 bg1">
 </div>
-<div class="image-split-5 bg2">
+<div id="advertising" class="image-split-5 bg2">
   <h3>ADVERTISING</h3>
 </div>
-<div class="image-split-5 bg3">
+<div id="illustration" class="image-split-5 bg3">
   <h3>ILLUSTRATION</h3>
 </div>
-<div class="image-split-5 bg4">
+<div id="process" class="image-split-5 bg4">
   <h3>PROCESS</h3>
 </div>
-<div class="image-split-5 bg5">
+<div id="advertising" class="image-split-5 bg5">
   <h3>ABOUT ME</h3>
 </div>
 <div id="bgtruck-logo">
@@ -22,19 +22,27 @@
         <img src=""/>
       </div>
       <div id="information">
-        <div class="title">
-        </div>
-        <div class="description">
-        </div>
+        <div class="title"></div>
+        <div class="description"></div>
         <div class="programs">
-          Adobe Illustrator CSS6
+          Adobe Photoshop CS4<br/>
+          Adobe Illustrator CS4
         </div>
       </div>
+    </div>
+    <div id="back" class="button">
+      <i class="icon-chevron-left"></i>
+    </div>
+    <div id="next" class="button">
+      <i class="icon-chevron-right"></i>
     </div>
   </div>
 </div>
 <script>
-  var illustrations = <%= raw @illustrations %>
+  var current_set = null;
+  var advertising_set = new ImageSet(<%= raw @advertisings %>)
+  var illustrations_set = new ImageSet(<%= raw @illustrations %>)
+  var process_set = new ImageSet(<%= raw @steps %>)
 
   function getMeta(url) {
       var img = new Image();
@@ -42,6 +50,12 @@
       img.onload = function() {
           resize_image(this);
       }
+  }
+
+  function display_image(){
+    getMeta(current_set.images[current_set.current].image);
+    jQuery("#information .title").html(current_set.images[current_set.current].display);
+    jQuery("#information .description").html(current_set.images[current_set.current].description);
   }
 
   function Dimensions(x, y) {
@@ -86,16 +100,30 @@
 
   }
 
-  var currentImage = 0;
-  function nextImage(){
-    if(currentImage == illustrations.length - 1){
-      currentImage = 0;
+  function ImageSet(images) {
+    this.current = 0;
+    this.images = images;
+
+    this.next_image = function(){
+      if(this.current == this.images.length - 1){
+        this.current = 0;
+      }
+      else{
+        this.current++;
+      }
+      getMeta(this.images[this.current].image);
+      jQuery("#information .title").html(this.images[this.current].display);
     }
-    else{
-      currentImage++;
+    this.prev_image = function(){
+      if(this.current == 0){
+        this.current = this.images.length - 1;
+      }
+      else{
+        this.current--;
+      }
+      getMeta(this.images[this.current].image);
+      jQuery("#information .title").html(this.images[this.current].display);
     }
-    getMeta(illustrations[currentImage].image);
-    jQuery("#information .title").html(illustrations[currentImage].title);
   }
 
   jQuery(document).ready(function(){
@@ -119,16 +147,38 @@
         jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+",.85)");
       }
     });
-    jQuery(".image-split-5").click(function(){
+
+    jQuery("#advertising").click(function(){
       jQuery("#modalbox").show();
-      getMeta(illustrations[currentImage].image);
-      jQuery("#information .title").html(illustrations[currentImage].title);
-      jQuery("#information .description").html(illustrations[currentImage].description);
+      current_set = advertising_set;
+      display_image();
+    });
+
+    jQuery("#illustration").click(function(){
+      jQuery("#modalbox").show();
+      current_set = illustrations_set;
+      display_image();
+    });
+
+    jQuery("#process").click(function(){
+      jQuery("#modalbox").show();
+      current_set = process_set;
+      display_image();
     });
 
     jQuery("#image-box").click(function(e){
       e.stopPropagation();
-      nextImage();
+      current_set.next_image();
+    });
+
+    jQuery("#image-box #back").click(function(e){
+      e.stopPropagation();
+      current_set.prev_image();
+    });
+
+    jQuery("#image-box #next").click(function(e){
+      e.stopPropagation();
+      current_set.next_image();
     });
 
     jQuery("#modalbox").click(function(){

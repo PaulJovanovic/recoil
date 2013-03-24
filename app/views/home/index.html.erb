@@ -8,9 +8,9 @@
 
   <script>
     function flickerText(){
-        var length = Math.floor(Math.random() * 120);
+        var length = Math.floor(Math.random() * 120 + 1);
         jQuery("#portfolio").css('textShadow','#ffffff 1px 1px '+length+'px');
-        jQuery("#portfolio").css('opacity',length/120 +.2);
+        jQuery("#portfolio").css('opacity',length/121);
         setTimeout(flickerText, 60);
     }
     jQuery(document).ready(function(){

@@ -23,7 +23,7 @@
 	<% @illustrations.each do |illustration| %>
 		<tr>
 			<td class="image">
-				<%= image_tag illustration.image.url %>
+				<%= image_tag illustration.image.url(:medium) %>
 			</td>
 			<td>
 				<%= illustration.title %>
