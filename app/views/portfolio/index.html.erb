@@ -1,15 +1,15 @@
 <div class="image-split-5 bg1">
 </div>
-<div id="advertising" class="image-split-5 bg2">
-  <h3>ADVERTISING</h3>
-</div>
-<div id="illustration" class="image-split-5 bg3">
+<div id="illustration" class="image-split-5 bg2">
   <h3>ILLUSTRATION</h3>
+</div>
+<div id="advertising" class="image-split-5 bg3">
+  <h3>ADVERTISING</h3>
 </div>
 <div id="process" class="image-split-5 bg4">
   <h3>PROCESS</h3>
 </div>
-<div id="advertising" class="image-split-5 bg5">
+<div id="about" class="image-split-5 bg5">
   <h3>ABOUT ME</h3>
 </div>
 <div id="bgtruck-logo">
@@ -112,7 +112,7 @@
         this.current++;
       }
       getMeta(this.images[this.current].image);
-      jQuery("#information .title").html(this.images[this.current].display);
+      display_image();
     }
     this.prev_image = function(){
       if(this.current == 0){
@@ -122,7 +122,7 @@
         this.current--;
       }
       getMeta(this.images[this.current].image);
-      jQuery("#information .title").html(this.images[this.current].display);
+      display_image();
     }
   }
 
@@ -136,6 +136,10 @@
         jQuery(this).removeClass("shadow");
         jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+","+colors[3]+")");
       });
+    });
+
+    $(document).keyup(function(e) {
+      if (e.keyCode == 27) { jQuery('#modalbox').click(); }   // esc
     });
 
     jQuery(".image-split-5").mouseenter(function(){
@@ -164,6 +168,10 @@
       jQuery("#modalbox").show();
       current_set = process_set;
       display_image();
+    });
+
+    jQuery("#about").click(function(){
+      jQuery("#modalbox").show();
     });
 
     jQuery("#image-box").click(function(e){

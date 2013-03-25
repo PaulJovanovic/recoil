@@ -4,11 +4,6 @@ html {
 }
 
 body {
-    background-image: url("/assets/truckbg.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -58,6 +53,12 @@ body {
     font-weight: normal;
     font-style: normal;
 
+}
+
+#bgtruck{
+    position: absolute;
+    top: 15%;
+    width: 100%;
 }
 
 .hbold {
@@ -190,11 +191,11 @@ a:active {
 }
 
 #modalbox #image-box #back {
-    left: -20px;
+    left: -50px;
 }
 
 #modalbox #image-box #next {
-    right: -20px;
+    right: -50px;
 }
 
 #modalbox #image-box.tall {
@@ -219,7 +220,7 @@ a:active {
 }
 
 #modalbox #image-box #information {
-    color: #45433E;
+    color: #000;
     float: left;
     font-size: 20px;
     padding: 10px;
