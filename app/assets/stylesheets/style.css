@@ -20,7 +20,7 @@ body {
     width:100%;
     height:100%;
     overflow: hidden;
-    font-family: HBold;
+    font-family: HelveticaNeueLTStd35Thin;
 }
 
 #content {
@@ -53,6 +53,15 @@ body {
     font-weight: normal;
     font-style: normal;
 
+}
+
+@font-face {
+    font-family: 'HelveticaNeueLTStd35Thin';
+    src: url('helveticaneueltstd-th.eot');
+    src: url('helveticaneueltstd-th.eot') format('embedded-opentype'),
+         url('helveticaneueltstd-th.woff') format('woff'),
+         url('helveticaneueltstd-th.ttf') format('truetype'),
+         url('helveticaneueltstd-th.svg#HelveticaNeueLTStd35Thin') format('svg');
 }
 
 #bgtruck{
