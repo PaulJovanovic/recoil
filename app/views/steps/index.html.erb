@@ -4,13 +4,18 @@
 <table>
 	<thead>
 		<tr>
-			<th>
-				Title
+			<th class="actions">
+				Order
 			</th>
-			<th>
+			<th class="image">
+				Image
+			</th>
+			<th class="text">
 				Description
 			</th>
-			<th>
+			<th class="actions">
+			</th>
+			<th class="actions">
 			</th>
 		</tr>
 	</thead>
@@ -18,7 +23,10 @@
 	<% @steps.each do |step| %>
 		<tr>
 			<td>
-				<%= step.step %>
+				<%= step.placement %>
+			</td>
+			<td class="image">
+				<%= image_tag step.image.url(:medium) %>
 			</td>
 			<td>
 				<%= step.description %>

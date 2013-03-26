@@ -232,11 +232,16 @@ a:active {
     color: #000;
     float: left;
     font-size: 20px;
-    padding: 10px;
+    position:relative;
 }
 
 #modalbox #image-box.wide #information {
     width: 100%;
+}
+
+#modalbox #image-box.tall #information {
+    width: 50%;
+    height:535px;
 }
 
 #modalbox #image-box.wide #information .title {
@@ -267,12 +272,19 @@ a:active {
 }
 
 #modalbox #image-box.tall #information .description {
-    height: 40px;
+    height: 200px;
+    text-align: center;
     font-size: 18px;
 }
 
 #modalbox #image-box.tall #information .programs {
+    position:absolute;
+    bottom: 10px;
     font-size: 12px;
+}
+
+.pam {
+    padding: 10px;
 }
 
 .pal {

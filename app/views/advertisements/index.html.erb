@@ -4,30 +4,44 @@
 <table>
 	<thead>
 		<tr>
-			<th>
+			<th class="actions">
+				Order
+			</th>
+			<th class="image">
+				Image
+			</th>
+			<th class="text">
 				Title
 			</th>
-			<th>
+			<th class="text">
 				Description
 			</th>
-			<th>
+			<th class="actions">
+			</th>
+			<th class="actions">
 			</th>
 		</tr>
 	</thead>
 	<tbody>
-	<% @advertisements.each do |advertisement| %>
+	<% @advertisings.each do |advertising| %>
 		<tr>
 			<td>
-				<%= advertisement.title %>
+				<%= advertising.placement %>
+			</td>
+			<td class="image">
+				<%= image_tag advertising.image.url(:medium) %>
 			</td>
 			<td>
-				<%= advertisement.description %>
+				<%= advertising.title %>
 			</td>
 			<td>
-				<%= link_to "Edit", edit_advertisement_path(advertisement) %>
+				<%= advertising.description %>
 			</td>
 			<td>
-				<%= link_to "Remove", advertisement, :confirm => 'Are you sure?', :method => :delete %>
+				<%= link_to "Edit", edit_advertising_path(advertising) %>
+			</td>
+			<td>
+				<%= link_to "Remove", advertising, :confirm => 'Are you sure?', :method => :delete %>
 			</td>
 		</tr>
 	<% end %>

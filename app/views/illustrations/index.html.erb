@@ -4,6 +4,9 @@
 <table>
 	<thead>
 		<tr>
+			<th class="actions">
+				Order
+			</th>
 			<th class="image">
 				Image
 			</th>
@@ -22,6 +25,9 @@
 	<tbody>
 	<% @illustrations.each do |illustration| %>
 		<tr>
+			<td>
+				<%= illustration.placement %>
+			</td>
 			<td class="image">
 				<%= image_tag illustration.image.url(:medium) %>
 			</td>
