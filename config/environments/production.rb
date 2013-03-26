@@ -78,4 +78,6 @@ Recoil::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  config.action_controller.asset_host = "http://recoil.s3.amazonaws.com"
 end
