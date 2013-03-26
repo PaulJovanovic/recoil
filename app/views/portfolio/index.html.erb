@@ -45,7 +45,12 @@
   <div id="image-box">
     <div class="pal">
       <h2>About Me</h2>
-      <%= @about.content.html_safe %>
+      <div>
+        <%= @about.content.html_safe %>
+      </div>
+      <div>
+        <%= link_to "Download Resume", @about.resume.url %>
+      </div>
     </div>
   </div>
 </div>
