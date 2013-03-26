@@ -43,14 +43,51 @@
 </div>
 <div id="modalbox2">
   <div id="image-box">
-    <div class="pal">
-      <h2>About Me</h2>
-      <div>
-        <%= @about.content.html_safe %>
-      </div>
-      <div>
+    <div class="left">
+      <div class="pam">
+        <h2>About Me</h2>
+        <div>
+          <%= @about.content.html_safe %>
+        </div><br/>
         <%= link_to "Download Resume", "http://recoil.s3.amazonaws.com#{@about.resume.path}" %>
       </div>
+    </div>
+    <div class="right">
+      <h2>Contact Info</h2>
+      <table>
+        <tr>
+          <td>
+            Phone
+          </td>
+          <td>
+            <%= @about.phone %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Email
+          </td>
+          <td>
+            <%= @about.email %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Facebook
+          </td>
+          <td>
+            <%= link_to "facebook.com/MattGould32", "http://facebook.com/MattGould32" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Instagram
+          </td>
+          <td>
+            @matthewgould32
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

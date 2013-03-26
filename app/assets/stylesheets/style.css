@@ -206,6 +206,16 @@ a:active {
     font-family: HBold;
 }
 
+#modalbox2 #image-box .left {
+    float: left;
+    width: 50%;
+}
+
+#modalbox2 #image-box .right {
+    float: right;
+    width: 50%;
+}
+
 #modalbox2 #image-box a {
     color: #000;
     text-decoration: underline;
