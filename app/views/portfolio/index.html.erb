@@ -60,15 +60,15 @@
       img.src = url;
       img.onload = function() {
           resize_image(this);
+          jQuery("#information .title").html(current_set.images[current_set.current].display);
+          jQuery("#information .description").html(current_set.images[current_set.current].description);
+          jQuery("#image-box .number").html("image " + (current_set.current + 1) + "/" + current_set.images.length);
       }
   }
 
   function display_image(){
     if (current_set.images.length){
       getMeta(current_set.images[current_set.current].image);
-      jQuery("#information .title").html(current_set.images[current_set.current].display);
-      jQuery("#information .description").html(current_set.images[current_set.current].description);
-      jQuery("#image-box .number").html("image " + (current_set.current + 1) + "/" + current_set.images.length);
     }
     else {
       jQuery("#image img").attr("src", "#");
