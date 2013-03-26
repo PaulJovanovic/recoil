@@ -13,7 +13,8 @@ body {
     border-bottom-style: none;
     border-left-style: none;
     overflow: hidden;
-    font-family: HelveticaNeueLTStd35Thin;;
+    font-family: HelveticaNeueLTStd35Thin;
+    height: 100%;
 }
 
 #content {
