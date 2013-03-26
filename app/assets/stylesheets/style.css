@@ -216,6 +216,10 @@ a:active {
     width: 50%;
 }
 
+#modalbox2 #image-box .right table {
+    width: 100%;
+}
+
 #modalbox2 #image-box a {
     color: #000;
     text-decoration: underline;
