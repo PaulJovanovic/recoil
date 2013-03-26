@@ -49,7 +49,7 @@
         <%= @about.content.html_safe %>
       </div>
       <div>
-        <%= link_to "Download Resume", @about.resume.path %>
+        <%= link_to "Download Resume", "http://recoil.s3.amazonaws.com#{@about.resume.path}" %>
       </div>
     </div>
   </div>
