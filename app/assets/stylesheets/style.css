@@ -15,6 +15,7 @@ body {
     overflow: hidden;
     font-family: HelveticaNeueLTStd35Thin;
     height: 100%;
+    width:100%;
 }
 
 #content {
@@ -101,7 +102,6 @@ a:active {
     position: absolute;
     width:20%;
     height:100%;
-    float:left;
     z-index: 0;
 }
 
