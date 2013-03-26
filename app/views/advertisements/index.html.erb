@@ -23,25 +23,25 @@
 		</tr>
 	</thead>
 	<tbody>
-	<% @advertisings.each do |advertising| %>
+	<% @advertisements.each do |advertisement| %>
 		<tr>
 			<td>
-				<%= advertising.placement %>
+				<%= advertisement.placement %>
 			</td>
 			<td class="image">
-				<%= image_tag advertising.image.url(:medium) %>
+				<%= image_tag advertisement.image.url(:medium) %>
 			</td>
 			<td>
-				<%= advertising.title %>
+				<%= advertisement.title %>
 			</td>
 			<td>
-				<%= advertising.description %>
+				<%= advertisement.description %>
 			</td>
 			<td>
-				<%= link_to "Edit", edit_advertising_path(advertising) %>
+				<%= link_to "Edit", edit_advertisement_path(advertisement) %>
 			</td>
 			<td>
-				<%= link_to "Remove", advertising, :confirm => 'Are you sure?', :method => :delete %>
+				<%= link_to "Remove", advertisement, :confirm => 'Are you sure?', :method => :delete %>
 			</td>
 		</tr>
 	<% end %>

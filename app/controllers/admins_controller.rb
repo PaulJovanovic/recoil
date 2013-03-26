@@ -8,4 +8,8 @@ class AdminsController < ApplicationController
 		end
 	end
 
+	def show
+		redirect_to portfolio_index_path
+	end
+
 end
