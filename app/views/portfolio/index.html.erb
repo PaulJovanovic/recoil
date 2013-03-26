@@ -18,6 +18,7 @@
 <div id="modalbox">
   <div id="image-box">
     <div class="pal">
+      <div class="number">1/13</div>
       <div id="image">
         <img src=""/>
       </div>
@@ -40,6 +41,14 @@
     </div>
   </div>
 </div>
+<div id="modalbox2">
+  <div id="image-box">
+    <div class="pal">
+      <h2>About Me</h2>
+      <%= @about.content %>
+    </div>
+  </div>
+</div>
 <script>
   var current_set = null;
   var advertising_set = new ImageSet(<%= raw @advertisings %>)
@@ -55,9 +64,18 @@
   }
 
   function display_image(){
-    getMeta(current_set.images[current_set.current].image);
-    jQuery("#information .title").html(current_set.images[current_set.current].display);
-    jQuery("#information .description").html(current_set.images[current_set.current].description);
+    if (current_set.images.length){
+      getMeta(current_set.images[current_set.current].image);
+      jQuery("#information .title").html(current_set.images[current_set.current].display);
+      jQuery("#information .description").html(current_set.images[current_set.current].description);
+      jQuery("#image-box .number").html("image " + (current_set.current + 1) + "/" + current_set.images.length);
+    }
+    else {
+      jQuery("#image img").attr("src", "#");
+      jQuery("#information .title").html("Empty");
+      jQuery("#information .description").html("");
+      jQuery("#image-box .number").html("0/0");
+    }
   }
 
   function Dimensions(x, y) {
@@ -173,10 +191,10 @@
     });
 
     jQuery("#about").click(function(){
-      jQuery("#modalbox").show();
+      jQuery("#modalbox2").show();
     });
 
-    jQuery("#image-box").click(function(e){
+    jQuery("#modalbox #image-box").click(function(e){
       e.stopPropagation();
       current_set.next_image();
     });
@@ -193,6 +211,14 @@
 
     jQuery("#modalbox").click(function(){
       jQuery("#modalbox").hide();
+    });
+
+    jQuery("#modalbox2").click(function(){
+      jQuery("#modalbox2").hide();
+    });
+
+    jQuery("#modalbox2 #image-box").click(function(e){
+      e.stopPropagation();
     });
   });
 

@@ -185,6 +185,26 @@ a:active {
     border: solid 5px #B5AE9C;
 }
 
+#modalbox2 {
+    position:absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.85);
+}
+
+#modalbox2 #image-box {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:60em;
+    height:36em;
+    margin-top: -18em; /*set to a negative number 1/2 of your height*/
+    margin-left: -30em; /*set to a negative number 1/2 of your width*/
+    background-color: #fff;
+    border: solid 5px #B5AE9C;
+}
+
 #modalbox #image-box .button {
     color: #fff;
     position:absolute;
@@ -216,6 +236,13 @@ a:active {
     float:left;
     height: 536px;
     width: 50%;
+}
+
+#modalbox #image-box .number {
+    position: absolute;
+    top:5px;
+    right:5px;
+    text-align: right;
 }
 
 #modalbox #image-box.tall #image {
@@ -272,6 +299,9 @@ a:active {
 }
 
 #modalbox #image-box.tall #information .description {
+    position:absolute;
+    top: 40%;
+    width:100%;
     height: 200px;
     text-align: center;
     font-size: 18px;

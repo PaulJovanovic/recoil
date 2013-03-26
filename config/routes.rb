@@ -2,6 +2,7 @@ Recoil::Application.routes.draw do
 
   devise_for :admins, :controllers => {:sessions => "sessions"}
 
+  resources :abouts
   resources :steps
   resources :illustrations
   resources :advertisements

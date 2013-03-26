@@ -36,4 +36,13 @@ Recoil::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'recoil',
+      :access_key_id => "AKIAJ2NQMQGOMSUIHWKQ",
+      :secret_access_key => "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"
+    }
+  }
 end

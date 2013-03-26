@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def get_steps
 	steps = Step.all.map do |step|
-	  { :id => step.id, :display => step.step, :description => step.description, :image => step.image.url(:large) }
+	  { :id => step.id, :display => "Step " + step.placement.to_s, :description => step.description, :image => step.image.url(:large) }
 	end
 
 	@steps = steps.to_json

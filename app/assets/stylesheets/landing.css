@@ -50,6 +50,17 @@ body {
     width: 1024px;
 }
 
+#logo {
+    position:absolute;
+    top: 40px;
+    left: 40px;
+    width: 20%;
+}
+
+#logo img {
+    width: 100%;
+}
+
 @font-face {
     font-family: 'HItalic';
     src: url('helveticaneueltstdltit.eot');
