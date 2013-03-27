@@ -155,12 +155,6 @@ a:active {
     background-color: rgba(13,14,21,.8);
 }
 
-html < .bg2 {
-    background:transparent;
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50990000,endColorstr=#50990000); 
-    zoom: 1;
-}
-
 #bgtruck-logo {
     position: absolute;
     top:0px;
