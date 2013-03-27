@@ -134,24 +134,28 @@ a:active {
 .bg2 {
     cursor: pointer;
     left: 20%;
+    background-color: rgb(13,14,21);
     background-color: rgba(13,14,21,.2);
 }
 
 .bg3 {
     cursor: pointer;
     left: 40%;
+    background-color: rgb(13,14,21);
     background-color: rgba(13,14,21,.35);
 }
 
 .bg4 {
     cursor: pointer;
     left: 60%;
+    background-color: rgb(13,14,21);
     background-color: rgba(13,14,21,.6);
 }
 
 .bg5 {
     cursor: pointer;
     left: 80%;
+    background-color: rgb(13,14,21);
     background-color: rgba(13,14,21,.8);
 }
 
