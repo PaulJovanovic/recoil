@@ -199,12 +199,9 @@
   jQuery(document).ready(function(){
 
     jQuery(".image-split-5").each(function(){
-      var rgb = jQuery(this).css("background-color").replace(/\s+/g, "");
-      rgb = rgb.slice(5,rgb.length-1);
-      var colors = rgb.split(",");
       jQuery(this).mouseleave(function(){
         jQuery(this).removeClass("shadow");
-        jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+","+colors[3]+")");
+        jQuery(this).css("background", jQuery(this).css("background"));
       });
     });
 
@@ -215,10 +212,8 @@
     jQuery(".image-split-5").mouseenter(function(){
       if(!jQuery(this).hasClass("bg1")){
         jQuery(this).addClass("shadow");
-        var rgb = jQuery(this).css("background-color").replace(/\s+/g, "");
-        rgb = rgb.slice(5,rgb.length-1);
-        var colors = rgb.split(",");
-        jQuery(this).css("background-color", "rgba("+colors[0]+","+colors[1]+","+colors[2]+",.85)");
+        var rgb = jQuery(this).css("background");
+        jQuery(this).css("background", "url('/assets/bghover.png')");
       }
     });
 
