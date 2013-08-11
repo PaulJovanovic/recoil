@@ -198,11 +198,16 @@
 
   jQuery(document).ready(function(){
 
-    jQuery(".image-split-5").mouseover(function(){
+    jQuery(".image-split-5").mouseenter(function(){
       if(!jQuery(this).hasClass("bg1")){
         jQuery(this).addClass("shadow");
         jQuery(this).addClass("bg-hover");
       }
+    });
+
+    jQuery(".image-split-5").mouseleave(function(){
+      jQuery(this).removeClass("shadow");
+      jQuery(this).removeClass("bg-hover");
     });
 
     $(document).keyup(function(e) {
