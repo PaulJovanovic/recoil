@@ -131,6 +131,10 @@ a:active {
     font-size: 100%;
 }
 
+.bg-hover {
+    background-image: url('/assets/bghover.png');
+}
+
 .bg2 {
     cursor: pointer;
     left: 20%;
