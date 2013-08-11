@@ -132,7 +132,7 @@ a:active {
 }
 
 .bg-hover {
-    background-image: url('/assets/bghover.png');
+    background-image: url('/assets/bghover.png') !important;
 }
 
 .bg2 {
