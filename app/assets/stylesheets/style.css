@@ -134,25 +134,25 @@ a:active {
 .bg2 {
     cursor: pointer;
     left: 20%;
-    background: url("/assets/bg2.png");
+    background-image: url("/assets/bg2.png");
 }
 
 .bg3 {
     cursor: pointer;
     left: 40%;
-    background: url("/assets/bg3.png");
+    background-image: url("/assets/bg3.png");
 }
 
 .bg4 {
     cursor: pointer;
     left: 60%;
-    background: url("/assets/bg4.png");
+    background-image: url("/assets/bg4.png");
 }
 
 .bg5 {
     cursor: pointer;
     left: 80%;
-    background: url("/assets/bg5.png");
+    background-image: url("/assets/bg5.png");
 }
 
 #bgtruck-logo {

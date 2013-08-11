@@ -199,19 +199,19 @@
   jQuery(document).ready(function(){
 
     jQuery.each(jQuery(".image-split-5"), function(){
-      jQuery(this).attr("data-background", jQuery(this).css("background"));
+      jQuery(this).attr("data-background", jQuery(this).css("background-image"));
     });
 
     jQuery(".image-split-5").mouseenter(function(){
       if(!jQuery(this).hasClass("bg1")){
         jQuery(this).addClass("shadow");
-        jQuery(this).css("background", "url('/assets/bghover.png')");
+        jQuery(this).css("background-image", "url('/assets/bghover.png')");
       }
     });
 
     jQuery(".image-split-5").mouseleave(function(){
       jQuery(this).removeClass("shadow");
-      jQuery(this).css("background", jQuery(this).attr("data-background"));
+      jQuery(this).css("background-image", jQuery(this).attr("data-background"));
     });
 
     $(document).keyup(function(e) {
